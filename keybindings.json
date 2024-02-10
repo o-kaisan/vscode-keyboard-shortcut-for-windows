@@ -1,0 +1,291 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+[
+    //// 移動系 ////
+    // サイドバーの表示非表示を切り替える
+    {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // todo拡張機能を開く
+    {
+        "key": "ctrl+shift+space",
+        "command": "workbench.view.extension.todo"
+    },
+    // テストパネルを開く
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.view.extension.test"
+    },
+    // ターミナル -> テキストエディター
+    {
+        "key": "ctrl+shift+oem_102",
+        "command": "terminal.focus",
+        "when": "editorTextFocus"
+    },
+    // テキストエディター -> ターミナル
+    {
+        "key": "ctrl+shift+oem_102",
+        "command": "workbench.action.focusFirstEditorGroup",
+        "when": "terminalFocus"
+    },
+    // テキストエディター → 問題ビューを開く
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.actions.view.problems",
+        "when": "workbench.panel.markers.view.active && editorTextFocus || terminalFocus"
+    },
+    // ターミナル系のパネルの表示非表示を切り替える
+    {
+        "key": "ctrl+oem_102",
+        "command": "workbench.action.togglePanel"
+    },
+    // (デフォルト削除)ターミナル系のパネルの表示非表示を切り替える
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    // エディタウィンドウ分割系
+    {
+        "key": "ctrl+shift+alt+right",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+k ctrl+oem_5",
+        "command": "-workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+shift+alt+down",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "ctrl+k ctrl+oem_5",
+        "command": "-workbench.action.splitEditorDown"
+    },
+    {
+        "key": "ctrl+shift+alt+left",
+        "command": "workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+k ctrl+oem_5",
+        "command": "-workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+shift+alt+up",
+        "command": "workbench.action.splitEditorUp"
+    },
+    {
+        "key": "ctrl+k ctrl+oem_5",
+        "command": "-workbench.action.splitEditorUp"
+    },
+    // ウィンドウ操作系
+    // (デフォルト削除) ファイルを移動 -> ctrl+pでできる
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    // (デフォルト削除) エディターウィンドウを閉じる → ctrl+F4で実行
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    // 左のウィンドウへ移動
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.focusFirstEditor"
+    },
+    // 右のウィンドウへ移動
+    {
+        "key": "ctrl+2",
+        "command": "workbench.action.focusSecondEditor"
+    },
+    // ターミナルウィンドウの表示非表示を切り替える
+    {
+        "key": "ctrl+oem_3",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "!inFilesPicker && terminal.active || !inQuickOpen && terminal.active"
+    },
+    // (デフォルト削除) ターミナルの表示非表示を切り替える
+    {
+        "key": "ctrl+oem_3",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // ファイル検索で一つ上の選択肢に戻る
+    {
+        "key": "ctrl+oem_3",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    // (デフォルト削除) ファイル検索で一つ上の選択肢に戻る
+    {
+        "key": "ctrl+shift+p",
+        "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    // (デフォルト削除) ファイル検索で一つ上の選択肢に戻る
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    // (デフォルト削除)クイックオープンビューを表示しているとき、表示するビューの前の選択肢にフォーカス
+    {
+        "key": "ctrl+shift+q",
+        "command": "-workbench.action.quickOpenNavigatePreviousInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+    // (デフォルト削除)クイックオープンビューを表示しているとき、表示するビューの前の選択肢にフォーカス
+    {
+        "key": "ctrl+shift+q",
+        "command": "-workbench.action.quickOpenNavigatePreviousInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+    // (デフォルト削除)クイックオープンビューを表示しているとき、表示するビューの次の選択肢にフォーカス
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+        "when": "inQuickOpen && inViewsPicker"
+    },
+
+
+    //// ディレクトリ操作系 ////
+    // ファイル一覧フォーカス時に新しいファイルを作成する
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    // (デフォルト削除)新しいウィンドウを開く
+    {
+        "key": "ctrl+shift+n",
+        "command": "-workbench.action.newWindow"
+    },
+    // ファイル一覧フォーカス時に新しいディレクトリを作成する
+    {
+        "key": "ctrl+shift+m",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus"
+    },
+
+    //// 開発系 ////
+    // pythonデバッグ用
+    {
+        "key": "ctrl+q",
+        "command": "type",
+        "args": { "text": "print('-'*100)" },
+        "when": "editorTextFocus && editorLangId == python"
+    },
+    // 選択領域を広げる
+    {
+        "key": "ctrl+w",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    // (デフォルト削除) 選択領域を広げる
+    {
+        "key": "shift+alt+right",
+        "command": "-editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    // 選択範囲を大文字に変換
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    // 選択範囲を子文字に変換
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.transformToLowercase",
+        "when": "editorTextFocus"
+    },
+    // リファクタリング
+    {
+        "key": "ctrl+shift+r",
+        "command": "editor.action.refactor",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    // (デフォルト削除)右方向への選択を広げる
+    {
+        "key": "ctrl+shift+alt+right",
+        "command": "-cursorColumnSelectRight",
+        "when": "textInputFocus"
+    },
+    // 定義へ移動
+    {
+        "key": "ctrl+j",
+        "command": "goToNextReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    },
+    // (デフォルト削除)　定義へ移動
+    {
+        "key": "f12",
+        "command": "-goToNextReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    },
+    // エディタエリアのカーソル位置の、シンボルが定義されている箇所へ移動
+    {
+        "key": "ctrl+j",
+        "command": "editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols"
+    },
+    // (デフォルト削除)エディタエリアのカーソル位置の、シンボルが定義されている箇所へ移動
+    {
+        "key": "f12",
+        "command": "-editor.gotoNextSymbolFromResult",
+        "when": "hasSymbols"
+    },
+    // 定義を横に開く
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    // (デフォルト削除)定義を横に開く
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    // 参照へ移動
+    {
+        "key": "ctrl+shift+j",
+        "command": "goToPreviousReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    },
+    // (デフォルト削除)　参照へ移動
+    {
+        "key": "shift+f12",
+        "command": "-goToPreviousReference",
+        "when": "inReferenceSearchEditor || referenceSearchVisible"
+    },
+    // エディタエリアのカーソル位置の、シンボルを参照している箇所へ移動
+    {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.goToReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    // (デフォルト削除)エディタエリアのカーソル位置の、シンボルを参照している箇所へ移動
+    {
+        "key": "shift+f12",
+        "command": "-editor.action.goToReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+
+    //// テスト系 ////
+    // (デフォルト削除)失敗したテストを再実行
+    {
+        "key": "ctrl+oem_1 e",
+        "command": "-testing.reRunFailTests"
+    },
+    // 最後に実行したテストを再度実行
+    {
+        "key": "ctrl+e",
+        "command": "testing.reRunLastRun"
+    },
+    // (デフォルト削除)最後に実行したテストを再度実行
+    {
+        "key": "ctrl+oem_1 l",
+        "command": "-testing.reRunLastRun"
+    },
+]
