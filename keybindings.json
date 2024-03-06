@@ -78,7 +78,7 @@
         "command": "-workbench.action.splitEditorUp"
     },
     // ウィンドウ操作系
-    // (デフォルト削除) ファイルを移動 -> ctrl+pでできる
+    // (デフォルト削除) ファイルを移動 -> ctrl+pで実施
     {
         "key": "ctrl+e",
         "command": "-workbench.action.quickOpen"
@@ -146,8 +146,6 @@
         "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
         "when": "inQuickOpen && inViewsPicker"
     },
-
-
     //// ディレクトリ操作系 ////
     // ファイル一覧フォーカス時に新しいファイルを作成する
     {
@@ -166,13 +164,14 @@
         "command": "explorer.newFolder",
         "when": "filesExplorerFocus"
     },
-
     //// 開発系 ////
     // pythonデバッグ用
     {
         "key": "ctrl+q",
         "command": "type",
-        "args": { "text": "print('-'*100)" },
+        "args": {
+            "text": "print('-'*100)"
+        },
         "when": "editorTextFocus && editorLangId == python"
     },
     // 選択領域を広げる
@@ -271,7 +270,6 @@
         "command": "-editor.action.goToReferences",
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
     },
-
     //// テスト系 ////
     // (デフォルト削除)失敗したテストを再実行
     {
@@ -287,5 +285,11 @@
     {
         "key": "ctrl+oem_1 l",
         "command": "-testing.reRunLastRun"
+    },
+    //// その他 ////
+    // ターミナルのvimでctrl+qで矩形選択できなくなるので無効化する
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quickOpenView"
     },
 ]
