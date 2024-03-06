@@ -48,7 +48,7 @@
     //// エディタウィンドウ分割系 ////
     // 右に分割
     {
-        "key": "ctrl+shift+right",
+        "key": "shift+alt+right",
         "command": "workbench.action.splitEditorRight"
     },
     // デフォルトコマンドは無効化
@@ -58,10 +58,10 @@
     },
     // 左に分割
     {
-        "key": "ctrl+shift+left",
+        "key": "shift+alt+left",
         "command": "workbench.action.splitEditorLeft"
     },
-    // デフォルトコマンドは無効化
+    // (デフォルト削除) 左に分割
     {
         "key": "ctrl+k ctrl+oem_5",
         "command": "-workbench.action.splitEditorLeft"
