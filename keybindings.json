@@ -1,4 +1,5 @@
 // 既定値を上書きするには、このファイル内にキー バインドを挿入します
+// 注意：RDP越しにctrl+alt+矢印が聞かないのでよく使ものは別のショートカットキーに割り当てる
 [
     //// 移動系 ////
     // サイドバーの表示非表示を切り替える
@@ -44,38 +45,26 @@
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
-    // エディタウィンドウ分割系
+    //// エディタウィンドウ分割系 ////
+    // 右に分割
     {
-        "key": "ctrl+shift+alt+right",
+        "key": "ctrl+shift+right",
         "command": "workbench.action.splitEditorRight"
     },
+    // デフォルトコマンドは無効化
     {
         "key": "ctrl+k ctrl+oem_5",
         "command": "-workbench.action.splitEditorRight"
     },
+    // 左に分割
     {
-        "key": "ctrl+shift+alt+down",
-        "command": "workbench.action.splitEditorDown"
-    },
-    {
-        "key": "ctrl+k ctrl+oem_5",
-        "command": "-workbench.action.splitEditorDown"
-    },
-    {
-        "key": "ctrl+shift+alt+left",
+        "key": "ctrl+shift+left",
         "command": "workbench.action.splitEditorLeft"
     },
+    // デフォルトコマンドは無効化
     {
         "key": "ctrl+k ctrl+oem_5",
         "command": "-workbench.action.splitEditorLeft"
-    },
-    {
-        "key": "ctrl+shift+alt+up",
-        "command": "workbench.action.splitEditorUp"
-    },
-    {
-        "key": "ctrl+k ctrl+oem_5",
-        "command": "-workbench.action.splitEditorUp"
     },
     // ウィンドウ操作系
     // (デフォルト削除) ファイルを移動 -> ctrl+pで実施
@@ -285,6 +274,42 @@
     {
         "key": "ctrl+oem_1 l",
         "command": "-testing.reRunLastRun"
+    },
+    // (デフォルト削除)前のコマンドを選択
+    {
+        "key": "ctrl+shift+up",
+        "command": "-workbench.action.terminal.selectToPreviousCommand",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    // (デフォルト削除)上の行を選択
+    {
+        "key": "ctrl+shift+up",
+        "command": "-cursorUpSelect",
+        "when": "textInputFocus"
+    },
+    // 上の行もカーソルに含める
+    {
+        "key": "ctrl+shift+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    // (デフォルト削除)上の行もカーソルに含める ※RDP越しで効かない
+    {
+        "key": "ctrl+alt+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    // 下の行をカーソルに含める
+    {
+        "key": "ctrl+shift+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    // (デフォルト削除)下の行をカーソルに含める ※RDP越しで効かない
+    {
+        "key": "ctrl+alt+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
     },
     //// その他 ////
     // ターミナルのvimでctrl+qで矩形選択できなくなるので無効化する
