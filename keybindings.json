@@ -19,15 +19,9 @@
     },
     // ターミナル -> テキストエディター
     {
-        "key": "ctrl+shift+oem_102",
-        "command": "terminal.focus",
-        "when": "editorTextFocus"
-    },
-    // テキストエディター -> ターミナル
-    {
-        "key": "ctrl+shift+oem_102",
-        "command": "workbench.action.focusFirstEditorGroup",
-        "when": "terminalFocus"
+        "key": "ctrl+shift+oem_5",
+        "command": "-workbench.action.terminal.focusTabs",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
     },
     // テキストエディター → 問題ビューを開く
     {
@@ -45,6 +39,18 @@
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
+    // 前に戻る
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    // (デフォルト削除)前に戻る
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
     //// エディタウィンドウ分割系 ////
     // 右に分割
     {
@@ -60,6 +66,12 @@
     {
         "key": "shift+alt+left",
         "command": "workbench.action.splitEditorLeft"
+    },
+    // (デフォルト削除) 左に分割
+    {
+        "key": "shift+alt+left",
+        "command": "-editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
     },
     // (デフォルト削除) 左に分割
     {
@@ -163,6 +175,24 @@
         },
         "when": "editorTextFocus && editorLangId == python"
     },
+    // TypeScriptデバッグ用
+    {
+        "key": "ctrl+q",
+        "command": "type",
+        "args": {
+            "text": "console.log()"
+        },
+        "when": "editorTextFocus && editorLangId == typescript"
+    },
+    // TypeScript JSXデバッグ用
+    {
+        "key": "ctrl+q",
+        "command": "type",
+        "args": {
+            "text": "console.log()"
+        },
+        "when": "editorTextFocus && editorLangId == typescriptreact"
+    },
     // 選択領域を広げる
     {
         "key": "ctrl+w",
@@ -174,6 +204,17 @@
         "key": "shift+alt+right",
         "command": "-editor.action.smartSelect.expand",
         "when": "editorTextFocus"
+    },
+    // 選択領域を縮小する
+    {
+        "key": "ctrl+shift+w",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    // (デフォルト削除)ウィンドウを閉じる
+    {
+        "key": "ctrl+shift+w",
+        "command": "-workbench.action.closeWindow"
     },
     // 選択範囲を大文字に変換
     {
@@ -225,7 +266,7 @@
     },
     // 定義を横に開く
     {
-        "key": "ctrl+j",
+        "key": "ctrl+shift+f7",
         "command": "editor.action.revealDefinition",
         "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
     },
@@ -249,31 +290,9 @@
     },
     // エディタエリアのカーソル位置の、シンボルを参照している箇所へ移動
     {
-        "key": "ctrl+shift+j",
-        "command": "editor.action.goToReferences",
-        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    // (デフォルト削除)エディタエリアのカーソル位置の、シンボルを参照している箇所へ移動
-    {
         "key": "shift+f12",
         "command": "-editor.action.goToReferences",
         "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-    },
-    //// テスト系 ////
-    // (デフォルト削除)失敗したテストを再実行
-    {
-        "key": "ctrl+oem_1 e",
-        "command": "-testing.reRunFailTests"
-    },
-    // 最後に実行したテストを再度実行
-    {
-        "key": "ctrl+e",
-        "command": "testing.reRunLastRun"
-    },
-    // (デフォルト削除)最後に実行したテストを再度実行
-    {
-        "key": "ctrl+oem_1 l",
-        "command": "-testing.reRunLastRun"
     },
     // (デフォルト削除)前のコマンドを選択
     {
@@ -311,10 +330,30 @@
         "command": "-editor.action.insertCursorBelow",
         "when": "editorTextFocus"
     },
+    //// テスト系 ////
+    // (デフォルト削除)失敗したテストを再実行
+    {
+        "key": "ctrl+oem_1 e",
+        "command": "-testing.reRunFailTests"
+    },
+    // 最後に実行したテストを再度実行
+    {
+        "key": "ctrl+e",
+        "command": "testing.reRunLastRun"
+    },
+    // (デフォルト削除)最後に実行したテストを再度実行
+    {
+        "key": "ctrl+oem_1 l",
+        "command": "-testing.reRunLastRun"
+    },
     //// その他 ////
     // ターミナルのvimでctrl+qで矩形選択できなくなるので無効化する
     {
         "key": "ctrl+q",
         "command": "-workbench.action.quickOpenView"
+    },
+    {
+        "key": "ctrl+shift+oem_102",
+        "command": "extension.changeCase.commands"
     },
 ]
