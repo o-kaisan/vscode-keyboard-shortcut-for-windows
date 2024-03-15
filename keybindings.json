@@ -246,6 +246,16 @@
         "command": "goToNextReference",
         "when": "inReferenceSearchEditor || referenceSearchVisible"
     },
+    {
+        "key": "ctrl+j",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
     // (デフォルト削除)　定義へ移動
     {
         "key": "f12",
@@ -330,6 +340,11 @@
         "command": "-editor.action.insertCursorBelow",
         "when": "editorTextFocus"
     },
+    // 選択した命名規則に従って範囲選択している文字列を変換する(Change-Case拡張機能)
+    {
+        "key": "ctrl+shift+oem_102",
+        "command": "extension.changeCase.commands"
+    },
     //// テスト系 ////
     // (デフォルト削除)失敗したテストを再実行
     {
@@ -351,9 +366,5 @@
     {
         "key": "ctrl+q",
         "command": "-workbench.action.quickOpenView"
-    },
-    {
-        "key": "ctrl+shift+oem_102",
-        "command": "extension.changeCase.commands"
     },
 ]
